@@ -15,3 +15,15 @@
 
 * Part 3 of 3  - https://youtu.be/VPvmP64VlMo
 
+## Bulkhead
+
+* TBD
+
+## Retry
+
+* TBD
+
+## Ratelimiter
+
+* TBD
+
