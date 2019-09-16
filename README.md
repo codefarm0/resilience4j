@@ -27,3 +27,9 @@
 
 * TBD
 
+## Application Monitoring
+
+* Part 1 of 2 - https://youtu.be/hOhHmnE9uXs
+
+* Part 2 of 2 - https://youtu.be/eVIeYE5lYMs
+
