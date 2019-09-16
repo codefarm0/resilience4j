@@ -21,6 +21,10 @@ dependencies {
 	compile "io.github.resilience4j:resilience4j-spring-boot2:${resilience4jVersion}"
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-aop')
+	
+	//aplication monitoring
+	
+	compile group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: '1.2.1'
 
 
 	//core lib
