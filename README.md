@@ -25,7 +25,9 @@
 
 ## Ratelimiter
 
-* TBD
+Explained in video - 
+
+* https://youtu.be/GvcKYTZvrMM
 
 ## Application Monitoring
 
