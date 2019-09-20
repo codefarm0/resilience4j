@@ -21,7 +21,9 @@
 
 ## Retry
 
-* TBD
+Explained in video - 
+
+* https://youtu.be/X7X2FXqPRaI
 
 ## Ratelimiter
 
