@@ -32,3 +32,9 @@ resilience4j.ratelimiter:
       limitForPeriod: 10
       limitRefreshPeriod: 100000
       timeoutDuration: 1000ms
+
+resilience4j.retry:
+  instances:
+    retryService1:
+      maxRetryAttempts: 5
+      waitDuration: 10000
