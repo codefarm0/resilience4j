@@ -33,6 +33,8 @@ Explained in video -
 
 ## Application Monitoring
 
+I have explained micrometer, prometheus and Grafana. For full details watch below videos - 
+
 * Part 1 of 2 - https://youtu.be/hOhHmnE9uXs
 
 * Part 2 of 2 - https://youtu.be/eVIeYE5lYMs
