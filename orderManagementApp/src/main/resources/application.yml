@@ -25,3 +25,10 @@ resilience4j.circuitbreaker:
       ringBufferSizeInHalfOpenState: 4
       waitDurationInOpenState: 20s
       failureRateThreshold: 60
+
+resilience4j.ratelimiter:
+  instances:
+    service1:
+      limitForPeriod: 10
+      limitRefreshPeriod: 100000
+      timeoutDuration: 1000ms

@@ -1,7 +1,10 @@
 package com.gl.orderManagementApp.service.resilience4j;
 
 import com.gl.orderManagementApp.dto.SellerDto;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,7 @@ public class UserRegistrationResilience4j {
 
 
     @CircuitBreaker(name = "service1", fallbackMethod = "fallbackForRegisterSeller")
+    @RateLimiter(name = "service1")
     public String registerSeller(SellerDto sellerDto) {
         String response = restTemplate.postForObject("/addSeller", sellerDto, String.class);
         return response;
@@ -32,6 +36,7 @@ public class UserRegistrationResilience4j {
 
     @CircuitBreaker(name = "service2", fallbackMethod = "fallbackForGetSeller")
     public List<SellerDto> getSellersList() {
+        logger.info("calling getSellerList()");
         return restTemplate.getForObject("/sellersList", List.class);
     }
 
@@ -50,4 +55,5 @@ public class UserRegistrationResilience4j {
         defaultList.add(sd);
         return defaultList;
     }
+
 }
