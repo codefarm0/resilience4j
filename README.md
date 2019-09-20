@@ -21,7 +21,9 @@
 
 ## Retry
 
-* TBD
+Explained in video - 
+
+* https://youtu.be/X7X2FXqPRaI
 
 ## Ratelimiter
 
@@ -30,6 +32,8 @@ Explained in video -
 * https://youtu.be/GvcKYTZvrMM
 
 ## Application Monitoring
+
+I have explained micrometer, prometheus and Grafana. For full details watch below videos - 
 
 * Part 1 of 2 - https://youtu.be/hOhHmnE9uXs
 
