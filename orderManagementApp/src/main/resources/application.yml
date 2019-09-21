@@ -38,3 +38,16 @@ resilience4j.retry:
     retryService1:
       maxRetryAttempts: 5
       waitDuration: 10000
+
+resilience4j.bulkhead:
+  instances:
+    bulkheadService1:
+      maxWaitDuration: 10ms
+      maxConcurrentCall: 30
+
+resilience4j.thread-pool-bulkhead:
+  instances:
+    bulkheadService1:
+      maxThreadPoolSize: 1
+      coreThreadPoolSize: 1
+      queueCapacity: 1
