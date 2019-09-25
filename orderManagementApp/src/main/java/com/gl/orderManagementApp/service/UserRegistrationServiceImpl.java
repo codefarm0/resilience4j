@@ -28,14 +28,14 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 
         String registerSeller = null;
 
-        for (int i = 0; i < 10000; i++) {
+        //for (int i = 0; i < 10000; i++) {
             long start = System.currentTimeMillis();
 
             registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
 
             logger.info("add seller call returned in - {}", System.currentTimeMillis() - start);
-        }
-        registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
+       // }
+        //registerSeller = userRegistrationResilience4j.registerSeller(sellerDto);
         return registerSeller;
 
     }
