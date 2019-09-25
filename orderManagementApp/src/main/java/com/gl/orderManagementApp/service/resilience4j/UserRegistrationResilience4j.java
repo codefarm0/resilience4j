@@ -28,8 +28,9 @@ public class UserRegistrationResilience4j {
 
 
     @CircuitBreaker(name = "service1", fallbackMethod = "fallbackForRegisterSeller")
-    @RateLimiter(name = "service1")
+    @RateLimiter(name = "service1", fallbackMethod = "rateLimiterfallback")
     @Retry(name = "retryService1", fallbackMethod = "retryfallback")
+    @Bulkhead(name = "bulkheadService1", fallbackMethod = "bulkHeadFallback")
     public String registerSeller(SellerDto sellerDto) {
         String response = restTemplate.postForObject("/addSeller", sellerDto, String.class);
         return response;
@@ -40,13 +41,21 @@ public class UserRegistrationResilience4j {
         logger.info("calling getSellerList()");
         return restTemplate.getForObject("/sellersList", List.class);
     }
+    public String rateLimiterfallback(SellerDto sellerDto, Throwable t) {
+        logger.error("Inside rateLimiterfallback, cause - {}", t.toString());
+        return "Inside rateLimiterfallback method. Some error occurred while calling service for seller registration";
+    }
+    public String bulkHeadFallback(SellerDto sellerDto, Throwable t) {
+        logger.error("Inside bulkHeadFallback, cause - {}", t.toString());
+        return "Inside bulkHeadFallback method. Some error occurred while calling service for seller registration";
+    }
     public String retryfallback(SellerDto sellerDto, Throwable t) {
         logger.error("Inside retryfallback, cause - {}", t.toString());
         return "Inside retryfallback method. Some error occurred while calling service for seller registration";
     }
     public String fallbackForRegisterSeller(SellerDto sellerDto, Throwable t) {
-        logger.error("Inside fallbackForRegisterSeller, cause - {}", t.toString());
-        return "Inside fallback method. Some error occurred while calling service for seller registration";
+        logger.error("Inside circuit breaker fallbackForRegisterSeller, cause - {}", t.toString());
+        return "Inside circuit breaker fallback method. Some error occurred while calling service for seller registration";
     }
 
     public List<SellerDto> fallbackForGetSeller(Throwable t) {
