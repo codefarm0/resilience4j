@@ -17,7 +17,9 @@
 
 ## Bulkhead
 
-* TBD
+Explained in video - 
+
+* https://youtu.be/ib_cL26zOB8
 
 ## Retry
 

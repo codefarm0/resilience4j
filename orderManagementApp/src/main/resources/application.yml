@@ -4,40 +4,40 @@ server:
 management.endpoints.web.exposure.include: '*'
 management.endpoint.health.show-details: always
 
-resilience4j.circuitbreaker:
-  instances:
-    service1:
-      registerHealthIndicator: true
-      ringBufferSizeInClosedState: 5
-      ringBufferSizeInHalfOpenState: 3
-      waitDurationInOpenState: 10s
-      failureRateThreshold: 50
-      recordExceptions:
-        - org.springframework.web.client.HttpServerErrorException
-        - java.io.IOException
-        - java.util.concurrent.TimeoutException
-        - org.springframework.web.client.ResourceAccessException
-      ignoreExceptions:
-          - com.gl.orderManagementApp.service.MyException
-    service2:
-      registerHealthIndicator: true
-      ringBufferSizeInClosedState: 6
-      ringBufferSizeInHalfOpenState: 4
-      waitDurationInOpenState: 20s
-      failureRateThreshold: 60
-
-resilience4j.ratelimiter:
-  instances:
-    service1:
-      limitForPeriod: 10
-      limitRefreshPeriod: 100000
-      timeoutDuration: 1000ms
-
-resilience4j.retry:
-  instances:
-    retryService1:
-      maxRetryAttempts: 5
-      waitDuration: 10000
+#resilience4j.circuitbreaker:
+#  instances:
+#    service1:
+#      registerHealthIndicator: true
+#      ringBufferSizeInClosedState: 5
+#      ringBufferSizeInHalfOpenState: 3
+#      waitDurationInOpenState: 10s
+#      failureRateThreshold: 50
+#      recordExceptions:
+#        - org.springframework.web.client.HttpServerErrorException
+#        - java.io.IOException
+#        - java.util.concurrent.TimeoutException
+#        - org.springframework.web.client.ResourceAccessException
+#      ignoreExceptions:
+#          - com.gl.orderManagementApp.service.MyException
+#    service2:
+#      registerHealthIndicator: true
+#      ringBufferSizeInClosedState: 6
+#      ringBufferSizeInHalfOpenState: 4
+#      waitDurationInOpenState: 20s
+#      failureRateThreshold: 60
+#
+#resilience4j.ratelimiter:
+#  instances:
+#    service1:
+#      limitForPeriod: 10
+#      limitRefreshPeriod: 100000
+#      timeoutDuration: 1000ms
+#
+#resilience4j.retry:
+#  instances:
+#    retryService1:
+#      maxRetryAttempts: 5
+#      waitDuration: 10000
 
 resilience4j.bulkhead:
   instances:
